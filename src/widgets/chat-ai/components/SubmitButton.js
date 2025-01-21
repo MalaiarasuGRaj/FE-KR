@@ -7,14 +7,16 @@ const SubmitButton = ({ isLoading, onClick, disabled }) => {
     <button
       onClick={onClick}
       disabled={disabled || isLoading}
-      className={`
-        px-6 py-2 rounded-lg font-medium transition-all duration-200
+      className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 transform focus:outline-none
         ${
           disabled || isLoading
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700"
+            : `bg-gradient-to-r from-blue-500 to-purple-600 text-white
+               hover:from-purple-600 hover:to-blue-500
+               hover:scale-105 hover:shadow-[0_4px_15px_rgba(96,165,250,0.5)]
+               active:scale-100 active:shadow-inner`
         }
-        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+        focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
       `}
       aria-label={isLoading ? "Submitting..." : "Submit message"}
       aria-disabled={disabled || isLoading}
@@ -22,7 +24,7 @@ const SubmitButton = ({ isLoading, onClick, disabled }) => {
       <div className="flex items-center justify-center space-x-2">
         {isLoading ? (
           <>
-            <LoadingSpinner />
+            <EnhancedLoadingSpinner />
             <span>Sending...</span>
           </>
         ) : (
@@ -33,9 +35,9 @@ const SubmitButton = ({ isLoading, onClick, disabled }) => {
   );
 };
 
-const LoadingSpinner = () => (
+const EnhancedLoadingSpinner = () => (
   <svg
-    className="animate-spin h-5 w-5"
+    className="animate-spin h-5 w-5 text-white"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

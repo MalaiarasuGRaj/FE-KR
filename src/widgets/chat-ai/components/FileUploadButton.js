@@ -67,22 +67,21 @@ const FileUploadButton = ({
         type="button"
         onClick={handleClick}
         disabled={disabled}
-        className={`
-          inline-flex items-center p-2 border border-transparent 
-          rounded-full shadow-sm
-          transition-all duration-300 ease-in-out transform
-          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+        className={`inline-flex items-center justify-center p-3 rounded-full shadow-lg transform transition-transform duration-200 ease-out focus:outline-none
           ${
             disabled
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-              : "text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 hover:shadow-lg hover:ring-2 hover:ring-blue-400 active:bg-blue-800 active:scale-100 active:shadow-inner transition-transform duration-200 ease-out"
+              : `bg-gradient-to-r from-blue-500 to-purple-600 text-white
+                hover:from-purple-600 hover:to-blue-500
+                hover:scale-110 hover:shadow-[0_4px_20px_rgba(96,165,250,0.5)]
+                active:scale-100 active:shadow-inner`
           }
         `}
         aria-label="Upload file"
         aria-disabled={disabled}
       >
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
