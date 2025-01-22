@@ -142,7 +142,7 @@ function App() {
     <div className="app-container relative">
       {/* Fixed Logo Section */}
       <img
-        src="logo.png" // Replace with the actual path to your logo
+        src="logo1.png" // Replace with the actual path to your logo
         alt="Company Logo"
         className="fixed-logo"
         onClick={() => window.open("https://www.digitalt3.com", "_blank")}
